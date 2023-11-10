@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manjari&family=Montserrat&family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<form id="registrationForm" action="#" method="post">
+<label for="studentName">Nama Lengkap:</label>
+<input type="text" id="studentName" required><br>
+<label for="studentId">ID Siswa:</label>
+<input type="text" id="studentId" required><br>
+<label for="email">Email:</label>
+<input type="email" id="email" required><br>
+<label for="password">Password:</label>
+<input type="password" id="password" required><br>
+<label for="birthDate">Tanggal Lahir:</label>
+<input type="date" id="birthDate" required><br>
+<button type="submit">Daftar</button>
+</form>
+<script>
+    
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Mencegah form dari submit otomatis
+
+    // Validasi Nama
+    var studentName = document.getElementById('studentName').value;
+    if (!studentName) {
+        alert('Nama lengkap wajib diisi.');
+        return false; // Menghentikan submit jika validasi gagal
+    }
+
+    // Validasi ID Siswa
+    var studentId = document.getElementById('studentId').value;
+    if (!studentId) {
+        alert('ID Siswa wajib diisi.');
+        return false;
+    }
+
+    // Validasi Email
+    var email = document.getElementById('email').value;
+    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+        alert('Format email tidak valid.');
+        return false;
+    }
+
+    // Validasi Password
+    var password = document.getElementById('password').value;
+    // Verifikasi menggunakan REGEX (silakan cari referensi tentang REGEX)
+    if (password.length < 14 || !/[a-zA-Z]/.test(password) || !/[0-9]/.test(password) || !/[^a-zA-Z0-9]/.test(password)) {
+        alert('Password harus minimal 14 karakter dan mengandung huruf, angka, serta simbol.');
+        return false;
+    }
+
+    // Validasi Tanggal Lahir
+    var birthDate = document.getElementById('birthDate').value;
+    if (!birthDate) {
+        alert('Tanggal lahir wajib diisi.');
+        return false;
+    }
+
+    // Jika semua validasi terpenuhi, proses form submission dilanjutkan.
+    // Replace dengan kode untuk submit data atau informasi selanjutnya.
+    alert('Pendaftaran berhasil!');
+});
+</script>
+</body>
+</html>
